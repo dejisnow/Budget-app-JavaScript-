@@ -32,7 +32,7 @@ let expenseBalanceBox = document.querySelector(".expenseBalanceBox")
 let expenseHead = document.querySelector(".expenseHead")
     let expenseTotal = document.querySelector(".expenseTotal")
     
-    
+  /*  
     let insertName = prompt("What is your name ?")
 if(insertName ){
     
@@ -41,6 +41,7 @@ user.innerHTML = `${insertName} !`
 user.innerHTML = "Player"
     
 }
+*/
 //Budget button
     budgetBtn.addEventListener("click",()=>{
       main.style.display= "grid"  
@@ -80,6 +81,8 @@ user.innerHTML = "Player"
    budgetHead.value = " "
    budgetTotal.value = " "
    
+   totalBalance = balanceResult -  expenseResult 
+   total.innerHTML = totalBalance 
    
     
     })
@@ -125,4 +128,4 @@ expenseBalanceBox.appendChild(expenseBalance)
     
     
     
-}
+        }
