@@ -6,8 +6,14 @@ window.onload=()=>{
     
     let main = document.querySelector(".main")
      let mainExpense = document.querySelector(".main_expense")
+    
     let save = document.querySelector(".save")
     let user = document.querySelector(".user")
+    let budgetClose = document.querySelector(".budget_close")
+    let expenseClose = document.querySelector(".expense_close")
+//surplus and deficit span
+let surplus = document.querySelector(".surplus")
+let deficit = document.querySelector(".deficit")
 
     let budgetNameBox = document.querySelector(".budgetNameBox")
     let budgetAmountBox = document.querySelector(".budgetAmountBox")
@@ -32,7 +38,8 @@ let expenseBalanceBox = document.querySelector(".expenseBalanceBox")
 let expenseHead = document.querySelector(".expenseHead")
     let expenseTotal = document.querySelector(".expenseTotal")
     
-  /*  
+  /*
+  Adding prompts  
     let insertName = prompt("What is your name ?")
 if(insertName ){
     
@@ -45,7 +52,18 @@ user.innerHTML = "Player"
 //Budget button
     budgetBtn.addEventListener("click",()=>{
       main.style.display= "grid"  
+      
         
+        
+    })
+    
+    //Closing opened modals
+    
+ budgetClose.addEventListener("click",()=>{
+ main.style.display = "none"     
+    })
+    expenseClose.addEventListener("click",()=>{
+ mainExpense.style.display = "none"
         
     })
     
@@ -66,23 +84,44 @@ user.innerHTML = "Player"
     let budgetName = document.createElement("p")
    let budgetAmount = document.createElement("p")
    let balanceAmount = document.createElement("p")
+  
    
       budgetName.innerHTML = budgetHead.value
-  budgetAmount.innerHTML = new Intl.NumberFormat('ng-NG', {style: 'currency', currency: 'NGN' }).format(budgetTotal.value);
+      
+  budgetAmount.innerHTML =budgetTotal.value ==" " ? 0 : new Intl.NumberFormat('ng-NG', {style: 'currency', currency: 'NGN' }).format(budgetTotal.value);
   
  
    budgetNameBox.appendChild(budgetName )
    budgetAmountBox.appendChild(budgetAmount)
  budgetBalanceBox.appendChild(balanceAmount)
-     amountArray.push(parseInt(budgetTotal.value))
+     amountArray.push(budgetTotal.value !== "" ? parseInt(budgetTotal.value):0)
    balanceResult = amountArray.reduce((a,b)=> a+b,0)
-   budgetBalanceBox.innerHTML =new Intl.NumberFormat('ng-NG', {style: 'currency', currency: 'NGN' }).format(balanceResult);
+   budgetBalanceBox.innerHTML = new Intl.NumberFormat('ng-NG', {style: 'currency', currency: 'NGN' }).format(balanceResult) ;
     
    budgetHead.value = " "
    budgetTotal.value = " "
    
-   totalBalance = balanceResult -  expenseResult 
-   total.innerHTML = totalBalance 
+   
+  totalBalance = balanceResult -  expenseResult 
+  if(totalBalance < 0){
+      total.classList.add("active")
+      deficit.style.display="block"
+      surplus.style.display = "none"
+      
+      
+  }else if(totalBalance === 0){
+      deficit.style.display="none"
+      surplus.style.display = "none"
+      total.classList.remove("active")
+  }
+  else{
+      surplus.style.display= "block"
+      deficit.style.display="none"
+      total.classList.remove("active")
+  }
+   total.innerHTML =new Intl.NumberFormat('ng-NG', {style: 'currency', currency: 'NGN' }).format(totalBalance )
+   
+   
    
     
     })
@@ -104,15 +143,17 @@ expenseSaver.addEventListener("click",(e)=>{
    let expenseAmount = document.createElement("p");
    let expenseBalance = document.createElement("p");
   
-expenseName.innerHTML = expenseHead.value;
-expenseAmount.innerHTML = new Intl.NumberFormat('ng-NG', { style: 'currency', currency: 'NGN' }).format(expenseTotal.value);
+
+expenseName.innerHTML =  expenseHead.value;
+
+expenseAmount.innerHTML = expenseTotal.value==" " ? 0: new Intl.NumberFormat('ng-NG', { style: 'currency', currency: 'NGN' }).format(expenseTotal.value);
 
 expensesNameBox.appendChild(expenseName)
 expensesAmountBox.appendChild(expenseAmount)
 expenseBalanceBox.appendChild(expenseBalance)
 
 
-   expenseArray.push(parseInt(expenseTotal.value))
+   expenseArray.push(expenseTotal.value !== "" ? parseInt(expenseTotal.value):0)
  
   expenseResult = expenseArray.reduce((a,b)=> a+b,0)
    expenseBalanceBox.innerHTML = 
@@ -123,7 +164,23 @@ expenseBalanceBox.appendChild(expenseBalance)
    expenseTotal.value = " "
    
    totalBalance = balanceResult -  expenseResult 
-   total.innerHTML = totalBalance 
+   if(totalBalance < 0){
+      total.classList.add("active")
+      deficit.style.display="block"
+      surplus.style.display = "none"
+      
+      
+  }else if(totalBalance === 0){
+      deficit.style.display="none"
+      surplus.style.display = "none"
+      total.classList.remove("active")
+  }
+  else{
+      surplus.style.display= "block"
+      deficit.style.display="none"
+      total.classList.remove("active")
+  }
+   total.innerHTML =new Intl.NumberFormat('ng-NG', {style: 'currency', currency: 'NGN' }).format(totalBalance )
 })
     
     
