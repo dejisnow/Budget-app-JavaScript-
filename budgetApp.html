@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Page Title</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Roboto&display=swap" rel="stylesheet">
+        <title>Budget App</title>
     </head>
     <body>
+    <!-- By Deji snow -->
+    
+    
+    <div class="svgDiv">
+     <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <path fill="#FFD6E8" d="M34,-35C48.9,-28,69.2,-21.9,76.2,-9.4C83.3,3.1,77.1,22,65.6,34.1C54.1,46.2,37.4,51.4,21.2,56.6C5,61.8,-10.6,66.9,-21.8,62C-33,57,-39.7,41.9,-45.2,28.2C-50.7,14.4,-54.9,2,-52,-8.3C-49.1,-18.5,-39.1,-26.6,-29.2,-34.5C-19.4,-42.5,-9.7,-50.3,-0.1,-50.2C9.5,-50.1,19.1,-42.1,34,-35Z" transform="translate(100 100)" />
+</svg>
+         
+     </div>
     <div class="container">
-    <h1>Welcome <span class="user"> </span>
-    </h1> 
+    <h1>Plan Your Finances<span class="user"> </span>
+    </h1>
+    
+    <div class="total-div">
+      <h3>Amount Left</h3>
+        <p class="total "></p> <span class="surplus">Surplus 🔥👏</span> <span class="deficit">Deficit 🥲</span>
+        
+    </div>
+     
     
     
     <div class="main">
      
     <div class="box">
     <form>
+    <span class="budget_close">x</span>
     <p class="name" for="name">Budget Name</p>
     <input class="budgetHead" type="text"/>
     <p class="amount" for="amount">Amount</p>
@@ -24,24 +44,28 @@
     </form>
     
     </div>
+    <div class="budgetBtnDiv">
+        
+    
     
     <button class="budget_btn">Add Budget</button>
     <button class="expense_btn">Add Expense</button>
+    </div>
     
     <div class="mainContainer">
     
     <div class="budgetContainer">
     <div class="budget_header">
-        <h2>Budget</h2>
-        <h2>Amount</h2>
-        <h2>Balance</h2>
+        <h4>Budget</h4>
+        <h4>Amount</h4>
+        <h4>Total</h4>
     </div>
         
          
     <div class="budgetList">
-    <span class="budgetNameBox"></span>
-    <span class="budgetAmountBox"></span> 
-    <span class="budgetBalanceBox"></span>
+    <p class="budgetNameBox"></p>
+    <p class="budgetAmountBox"></p> 
+    <p class="budgetBalanceBox"></p>
 
    </div> 
    
@@ -49,12 +73,17 @@
     </div>
     
     <div class="expensesContainer">
-        <h2>Expenses</h2>
+        
+        <div class="expense_header">
+        <h4>Expenses</h4>
+        <h4>Amount</h4>
+        <h4>Total</h4>
+         </div>
         
         <div class="expensesList">
-        <span class="expensesNameBox"></span>
-         <span class="expensesAmountBox"></span> 
-       <span class="expenseBalanceBox"></span>
+        <p class="expensesNameBox"></p>
+         <p class="expensesAmountBox"></p> 
+       <p class="expenseBalanceBox"></p>
             
             
        </div>
@@ -65,6 +94,7 @@
      
     <div class="box_expense">
     <form>
+    <span class="expense_close">x</span>
     <p class="name" for="name">Expense Name</p>
     <input class="expenseHead" type="text"/>
     <p class="amount" for="amount"> Expense Amount</p>
