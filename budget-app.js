@@ -6,7 +6,7 @@ window.onload=()=>{
     
     let main = document.querySelector(".main")
      let mainExpense = document.querySelector(".main_expense")
-    
+     let box = document.querySelector(".box")
     let save = document.querySelector(".save")
     let user = document.querySelector(".user")
     let budgetClose = document.querySelector(".budget_close")
@@ -185,4 +185,4 @@ expenseBalanceBox.appendChild(expenseBalance)
     
     
     
-        }
+    }
