@@ -6,21 +6,43 @@
 
 
 body {
+font-family: 'Lato', sans-serif;
+
+background-color:#fff1f8;
+position:relative ;
+height:100vh;
+    
+}
+body h4{
 
     
 }
 .svgDiv svg{
     position:absolute;
     opacity:30%;
+    top:35%;
+    z-index:-99;
     
     
 }
-.svgDiv{
-    position:relative;
-    z-index:-99;
-
-
-    
+.budget_close,.expense_close{
+    position:absolute ;
+    right:5%;
+    font-weight:bold;
+    padding:5px;
+    font-size:20px;
+    top:0;
+    color:coral;
+}
+.surplus{
+margin:10px;
+    display:none;
+    color:coral;
+}
+.deficit{
+margin:10px;
+    display:none;
+    color:red;
 }
 button{
 border:0;
@@ -31,15 +53,18 @@ border-radius:10px;
 }
 .container h1{
     text-align:center ;
-    border:2px solid #eefeee;
+
+    border-radius:5px;
     padding:10px;
     margin:10px;
+    box-shadow:0px 5px 2px #ffdddd;
 }
 .container h1 span{
-    color:coral;
+    color:coral;#ffdddd
 }
 
 .main, .main_expense{
+
 width:100%;
 height:100vh;
     background-color:rgba(0,0,0,0.5);
@@ -47,16 +72,21 @@ height:100vh;
     place-items:center ;
     position:absolute ;
     top:0;
+    transition:all 1s ease;
+    
+    
     
 }
 .box,.box_expense{
 position:absolute ;
+
 
     width:250px;
     padding:20px;
     background:#ffffef;
     height:250px;
     border-radius:10px;
+    
 }
 input{
     padding:10px;
@@ -76,7 +106,7 @@ margin:0.5rem;
 
 .budget_btn,.expense_btn{
     padding:1rem;
-    margin:5px 10px;
+    margin:10px 10px;
     
 }
 .expense_btn{
@@ -90,6 +120,7 @@ margin:0.5rem;
 }
 .budgetList{
    display:grid; 
+   background-color:#;
    grid-template-columns:1fr 1fr 1fr;
    
    text-align:center ;
@@ -114,11 +145,12 @@ text-align:left;
 
 .budgetContainer{
     display:grid;
-    grid-template-rows:1fr 1fr;
+    
+    ;
 }
 .budget_header,.expense_header{
     display:flex;
-    justify-content:space-evenly;
+    justify-content:space-around;
 }
 
 .expensesList{
@@ -132,7 +164,12 @@ text-align:left;
 text-align:center;
  
 }
-
+.total.active{
+    color:red;
+}
+.total{
+    color:green;
+}
 .total-div{
 display:grid;
 place-items:center;
@@ -152,7 +189,12 @@ place-items:center;
 }
 
 
-
+footer{
+    position:absolute ;
+    font-size:10px;
+    bottom:0;
+    left:44%;
+}
 
 
 
